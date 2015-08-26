@@ -8,22 +8,26 @@ class Triangle extends Shape {
 	}
 
 	protected double area() {
-		return Math.sqrt(halfPerimeter() * ( halfPerimeter() - sideAlength() ) * (halfPerimeter() - sideBlength()) * (halfPerimeter() - sideClength()));
+		Double halfPerimeter = getHalfPerimeter();
+		Double sideALength = getSideALength();
+		Double sideBLength = getSideBLength();
+		Double sideCLength = getSideCLength();
+		return Math.sqrt(halfPerimeter * ( halfPerimeter - sideALength ) * (halfPerimeter - sideBLength) * (halfPerimeter - sideCLength));
 	}
 	
-	private double halfPerimeter(){
+	private double getHalfPerimeter(){
 		return this.perimeter()/2;
 	}
 	
-	private double sideAlength(){
+	private double getSideALength(){
 		return distance(points.get(0), points.get(1));
 	}
 	
-	private double sideBlength(){
+	private double getSideBLength(){
 		return distance(points.get(1), points.get(2));
 	}
 	
-	private double sideClength(){
+	private double getSideCLength(){
 		return distance(points.get(2), points.get(0));
 	}
 
