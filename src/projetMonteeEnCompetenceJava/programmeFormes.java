@@ -9,7 +9,7 @@ public class programmeFormes {
 		Shape shape1 = ShapeFactory.createShape();
 		
 		String[] computableShapeParameters = {"Perimeter","Area"};
-		Integer defaultChoiceID = 1;
+		Integer defaultChoiceID = 0;
 		JOptionPane jOptionPane = new JOptionPane();
 		String parameterToPrint = (String)jOptionPane.showInputDialog(null, 
 			      "What would you like to know about this shape ?",
@@ -19,14 +19,13 @@ public class programmeFormes {
 			      computableShapeParameters,
 			      computableShapeParameters[defaultChoiceID]);
 		
-		//if(parameterToPrint.Equals(computableShapeParameters[O])
+		if(parameterToPrint.equals(computableShapeParameters[0])){
+			shape1.printPerimeter();
+		}
+		if(parameterToPrint.equals(computableShapeParameters[1])){
+			shape1.printArea();
+		}
 		
-		shape1.printPerimeter();
-		
-		
-		
-		
-		shape1.printArea();
 		}
 		catch(UnhandledNumberOfPointsException exception)
 		{
