@@ -6,13 +6,13 @@ public class Point {
 	private double x;
 	private double y;
 	
-	//Point(double x, double y){
-	//	this.x = x;
-	//this.y = y;
-	//}
+	Point(){
+		this.x = 0;
+		this.y = 0;
+	}
 	
-	Point(Scanner scanner) throws EndEnteredByUserException{
-		setCoordinatesIfUserEntersValidCoordinates(scanner);
+	public boolean setCoordinatesFromUserEntriesReturnSuccess(Scanner scanner){
+		return setCoordinatesIfUserEntersValidCoordinates(scanner);
 	}
 	
 	public static enum coordinates{
@@ -20,15 +20,16 @@ public class Point {
 		yAxis
 	};
 	
-	private void setCoordinatesIfUserEntersValidCoordinates(Scanner scanner) throws EndEnteredByUserException{
+	private boolean setCoordinatesIfUserEntersValidCoordinates(Scanner scanner){
 		String xFromUser = getCoordinatesFromUser(coordinates.xAxis, scanner);
 		String yFromUser = getCoordinatesFromUser(coordinates.yAxis, scanner);
 		if( !xFromUser.equals("END") && !yFromUser.equals("END")){
 				this.x = Double.parseDouble(xFromUser);
 				this.y = Double.parseDouble(yFromUser);
+				return true;
 		}
-		else{
-			throw new EndEnteredByUserException();
+		else{	
+			return false;
 		}
 	}
 	

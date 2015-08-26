@@ -24,12 +24,10 @@ public abstract class ShapeFactory {
 		ArrayList<Point> points = new ArrayList();
 		Scanner scanner = new Scanner(System.in);
 		while(userDidNotEnterEnd){
-			try{
-			Point currentlyAddedPoint = new Point(scanner);
-			points.add(currentlyAddedPoint);
-			}
-			catch(EndEnteredByUserException endException){
-				userDidNotEnterEnd = false;
+			Point currentlyAddedPoint = new Point();
+			userDidNotEnterEnd = currentlyAddedPoint.setCoordinatesFromUserEntriesReturnSuccess(scanner);
+			if(userDidNotEnterEnd){
+				points.add(currentlyAddedPoint);
 			}
 		}
 		scanner.close();
